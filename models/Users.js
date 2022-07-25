@@ -32,11 +32,11 @@ const UsersSchema = new Schema(
 
     }
 )
-
+//creating a virtual field
 UsersSchema.virtual('friendCount').get(function() {
     return this.friends.length;
 })
-
+//defining model as Users variable
 const Users = model('Users', UsersSchema);
-
+// Allows Exporting
 module.exports = Users; 
