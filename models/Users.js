@@ -15,11 +15,11 @@ const UsersSchema = new Schema(
             //figure out matching email prob using regex later.
         },
         thoughts: [{
-            type: Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId, //we can .populate these fields in our routes and access them
             ref: 'Thoughts'
         }],
         friends: [{
-            type: Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,  //we can .populate these fields in our routes and access them
             ref: 'Users'
         }]
     },
