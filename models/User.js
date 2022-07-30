@@ -1,6 +1,6 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model, Types } = require('mongoose');
 
-const UsersSchema = new Schema(
+const userSchema = new Schema(
     {
         username: {
             type: String,
@@ -16,11 +16,11 @@ const UsersSchema = new Schema(
         },
         thoughts: [{
             type: Schema.Types.ObjectId, //we can .populate these fields in our routes and access them
-            ref: 'Thoughts'
+            ref: 'Thought'
         }],
         friends: [{
             type: Schema.Types.ObjectId,  //we can .populate these fields in our routes and access them
-            ref: 'Users'
+            ref: 'User'
         }]
     },
     {
@@ -33,10 +33,10 @@ const UsersSchema = new Schema(
     }
 )
 //creating a virtual field
-UsersSchema.virtual('friendCount').get(function() {
+userSchema.virtual('friendCount').get(function() {
     return this.friends.length;
 })
 //defining model as Users variable
-const Users = model('Users', UsersSchema);
+const User = model('User', userSchema);
 // Allows Exporting
-module.exports = Users; 
+module.exports = User; 

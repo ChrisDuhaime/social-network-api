@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const User = require('../models');
 //exporting these functions to be applied to the inner part of the routes.  These are the guts.  
 module.exports = {
   //get method for all users
@@ -30,7 +30,8 @@ module.exports = {
   updateUser(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
-      { $set: req.body }
+      { $set: req.body },
+      { runValidators: true, new: true }
     )
       .then((user) =>
         !user
