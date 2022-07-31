@@ -9,9 +9,9 @@ module.exports = {
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
       .then((thought) =>
-        !video
+        !thought
           ? res.status(404).json({ message: 'Cannot find an thought with that ID' })
-          : res.json(video)
+          : res.json(thought)
       )
       .catch((err) => res.status(500).json(err));
   },

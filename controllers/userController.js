@@ -1,10 +1,10 @@
-const User = require('../models');
+const { User, Thought } = require("../models");
 //exporting these functions to be applied to the inner part of the routes.  These are the guts.  
 module.exports = {
   //get method for all users
-  getUsers(req, res) {
-    User.find()
-      .then((users) => res.json(users))
+  getUser(req, res) {
+    User.find({})
+      .then((user) => res.json(user))
       .catch((err) => res.status(500).json(err));
   },
   //get method for single user

@@ -20,10 +20,10 @@ router
   .put(updateThought)
   .delete(deleteThought);
 
-// /api/videos/:videoId/reactions
+// /api/thoughts/:thoughtID/reactions
 router.route('/:thoughtId/reactions').post(addReaction); //post route for creating reations for a specific thoughtID
 
-// /api/videos/:videoId/reactions/:reactionId
+// /api/thoughts/:thoughtID/reactions/:reactionId
 router.route('/:thoughtId/reactions/:reactionId').delete(removeReaction); //delete route for reactions based on thoughtID and reactionID
 
 module.exports = router;
